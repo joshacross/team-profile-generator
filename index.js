@@ -1,3 +1,7 @@
+const App = require('./lib/index');
+
+new App().startApp();
+
 /* The application must have these classes
 1.) Employee
 2.) Manager
