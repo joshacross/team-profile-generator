@@ -40,5 +40,4 @@ Team Profile Generator, is a node.js application that is using object oriented p
 5.) After dependencies are installed, type `npm start` in the terminal window, and application will run
 
 ## Referenced Image
-<img src="" alt="">
-<img src="" alt="">
+<img src="./team.png">
