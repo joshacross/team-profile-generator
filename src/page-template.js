@@ -8,7 +8,7 @@ const generateTeam = teamName => {
     }
 
     return `
-    <header class="my-3" id="team">
+    <header class="my-3 bg-danger.bg-gradient text-white" id="team">
         <h6 class="text-dark p-1 display-inline-block> Welcome to the
         <h2 class="text-dark p-2 display-inline-block"> ${teamName}</h2>
     </header>
@@ -22,27 +22,86 @@ const generateManager = managerData => {
     }
 
     return `
-        <div class="card col" style="width: 18rem">
+        ${managerArr
+            .map(({ managerName, managerBio, managerId, managerEmail, gitHubUsername }) => {
+                return `
+                    <div class="card col" style="width: 18rem">
+                        <div class="bg-primary text-white">
+                            <div class="card-header">Manager</div>
+                            <div class="card-body">
+                                <h5 class="card-title">${managerName}</h5>
+                                <p class="card-text">${managerBio}</p>
+                            </div>
+                        <div class="bg-light text-dark">
+                        <ul class="list-group">
+                            <li class="list-group-item">ID: ${managerId}</li>
+                            <li class="list-group-item">
+                                Email: <a href="${managerEmail}>${managerEmail}</a>
+                            </li>
+                            <li class="list-group-item">
+                                GitHub: <a href="https://github.io/${gitHubUsername}">${gitHubUsername}</a>
+                            </li>
+                        </ul>
+                    </div>
+                `;
+            })
+        .join('')}
+    `
+}
+
+
+
+// create Enginner Card
+const generateEngineer = engineerData => {
+    return `
+        ${engineerArr
+            .map(({ engineerName, engineerBio, engineerId, engineerEmail, gitHubUsername }) => {
+                return `
+                    <div class="card col" style="width: 18rem">
+                        <div class="bg-primary text-white">
+                            <div class="card-header">engineer</div>
+                            <div class="card-body">
+                                <h5 class="card-title">${engineerName}</h5>
+                                <p class="card-text">${engineerBio}</p>
+                            </div>
+                        <div class="bg-light text-dark">
+                        <ul class="list-group">
+                            <li class="list-group-item">ID: ${engineerId}</li>
+                            <li class="list-group-item">
+                                Email: <a href="${engineerEmail}>${engineerEmail}</a>
+                            </li>
+                            <li class="list-group-item">
+                                GitHub: <a href="https://github.io/${gitHubUsername}">${gitHubUsername}</a>
+                            </li>
+                        </ul>
+                    </div>
+                `;
+            })
+        .join('')}
+    `
+}
+
+const generateIntern = internData => {
+    return `
+        <div class="card col bg-primary" style="width: 18rem">
+            <div class="card-header">Manager</div>
             <div class="card-body">
-                <h5 class="card-title">Jared</h5>
-                <p class="card-text">Manager</p>
+                <h5 class="card-title">${internName}</h5>
+                <p class="card-text">${internBio}</p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: 12345</li>
-                <li class="list-group-item">Role: Employee</li>
+                <li class="list-group-item">ID: ${internId}</li>
                 <li class="list-group-item">
-                    Email: <a href="mailto:jared@fakemail.com>Jared@fakemail.com</a>
+                    Email: <a href="${internEmail}>${internEmail}</a>
                 </li>
                 <li class="list-group-item">
                     GitHub: <a href="https://github.io/${gitHubUsername}">${gitHubUsername}</a>
                 </li>
             </ul>
-        <div class="card-body"></div>
-    </div>
-    `
+        </div>
+`
 }
 
-// create Enginner Card
 
 // create Intern Card
 
@@ -76,49 +135,11 @@ module.exports = templateData => {
             ${generateTeam(Team)}
             <main>
             <div class="container text-center align-content-center">
-                <div class="row">
+                <div class="d-flex justify-content-around">
                     ${generateManager(Manager)}
-                <div class="card col" style="width: 18rem">
-                    <div class="card-body">
-                    <h5 class="card-title">Jared</h5>
-                    <p class="card-text">Manager</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                    <li class="list-group-item">ID: 12345</li>
-                    <li class="list-group-item">Role: Employee</li>
-                    <li class="list-group-item">Email: Jared@fakemail.com</li>
-                    <li class="list-group-item"></li>
-                    </ul>
-                    <div class="card-body"></div>
+                    ${generateEngineer(Engineer)}
+                    ${generateIntern(Intern)}
                 </div>
-                <div class="card col" style="width: 18rem">
-                    <div class="card-body">
-                    <h5 class="card-title">Jared</h5>
-                    <p class="card-text">Manager</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                    <li class="list-group-item">ID: 12345</li>
-                    <li class="list-group-item">Role: Employee</li>
-                    <li class="list-group-item">Email: Jared@fakemail.com</li>
-                    <li class="list-group-item"></li>
-                    </ul>
-                    <div class="card-body"></div>
-                </div>
-                <div class="card col" style="width: 18rem">
-                    <div class="card-body">
-                    <h5 class="card-title">Jared</h5>
-                    <p class="card-text">Manager</p>
-                    </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">ID: 12345</li>
-                            <li class="list-group-item">Role: Employee</li>
-                            <li class="list-group-item">Email: Jared@fakemail.com</li>
-                            <li class="list-group-item"></li>
-                        </ul>
-                    <div class="card-body"></div>
-                </div>
-                </div>
-            </div>
             </main>
 
             <!-- Optional JavaScript -->
