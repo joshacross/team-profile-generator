@@ -23,7 +23,7 @@ const generateManager = managerData => {
 
     return `
         ${managerArr
-            .map(({ managerName, managerBio, managerId, managerEmail, gitHubUsername }) => {
+            .map(({ managerName, managerBio, managerId, managerEmail, gitHubUsername, officeNumber }) => {
                 return `
                     <div class="card col" style="width: 18rem">
                         <div class="bg-primary text-white">
@@ -36,10 +36,13 @@ const generateManager = managerData => {
                         <ul class="list-group">
                             <li class="list-group-item">ID: ${managerId}</li>
                             <li class="list-group-item">
-                                Email: <a href="${managerEmail}>${managerEmail}</a>
+                                Email: <a href="mailto:${managerEmail}>${managerEmail}</a>
                             </li>
                             <li class="list-group-item">
-                                GitHub: <a href="https://github.io/${gitHubUsername}">${gitHubUsername}</a>
+                                GitHub: <a href="https://github.io/${gitHubUsername} target="_blank">${gitHubUsername}</a>
+                            </li>
+                            <li class="list-group-item">
+                            Office Number: <a href="tel:${officeNumber}>${officeNumber}</a>
                             </li>
                         </ul>
                     </div>
@@ -68,10 +71,10 @@ const generateEngineer = engineerData => {
                         <ul class="list-group">
                             <li class="list-group-item">ID: ${engineerId}</li>
                             <li class="list-group-item">
-                                Email: <a href="${engineerEmail}>${engineerEmail}</a>
+                                Email: <a href="mailto:${engineerEmail}>${engineerEmail}</a>
                             </li>
                             <li class="list-group-item">
-                                GitHub: <a href="https://github.io/${gitHubUsername}">${gitHubUsername}</a>
+                                GitHub: <a href="https://github.io/${gitHubUsername} target="_blank">${gitHubUsername}</a>
                             </li>
                         </ul>
                     </div>
@@ -83,23 +86,33 @@ const generateEngineer = engineerData => {
 
 const generateIntern = internData => {
     return `
-        <div class="card col bg-primary" style="width: 18rem">
-            <div class="card-header">Manager</div>
-            <div class="card-body">
-                <h5 class="card-title">${internName}</h5>
-                <p class="card-text">${internBio}</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: ${internId}</li>
-                <li class="list-group-item">
-                    Email: <a href="${internEmail}>${internEmail}</a>
-                </li>
-                <li class="list-group-item">
-                    GitHub: <a href="https://github.io/${gitHubUsername}">${gitHubUsername}</a>
-                </li>
-            </ul>
-        </div>
-`
+        ${internArr
+            .map(({ internName, internBio, internId, internEmail, gitHubUsername }) => {
+                return `
+                    <div class="card col" style="width: 18rem">
+                        <div class="bg-primary text-white">
+                            <div class="card-header">intern</div>
+                            <div class="card-body">
+                                <h5 class="card-title">${internName}</h5>
+                                <p class="card-text">${internBio}</p>
+                            </div>
+                        <div class="bg-light text-dark">
+                        <ul class="list-group">
+                            <li class="list-group-item">ID: ${internId}</li>
+                            <li class="list-group-item">
+                                Email: <a href="mailto:${internEmail}>${internEmail}</a>
+                            </li>
+                            <li class="list-group-item">College: ${internSchool}</li>
+                            <li class="list-group-item">Credit Hours: ${internCreditHours}</li>
+                            <li class="list-group-item">
+                                GitHub: <a href="https://github.io/${gitHubUsername} target="_blank">${gitHubUsername}</a>
+                            </li>
+                        </ul>
+                    </div>
+                `;
+            })
+        .join('')}
+    `
 }
 
 
