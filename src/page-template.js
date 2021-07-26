@@ -84,37 +84,7 @@ const generateEngineer = engineerData => {
     `
 }
 
-// create Enginner Card
-const generateEmployee = employeeData => {
-    return `
-        ${employeeArr
-            .map(({ employeeName, employeeRole, employeeBio, employeeId, employeeEmail, gitHubUsername }) => {
-                return `
-                    <div class="card col" style="width: 18rem">
-                        <div class="bg-primary text-white">
-                            <div class="card-header">employee</div>
-                            <div class="card-body">
-                                <h5 class="card-title">${employeeName}</h5>
-                                <h4 class="card-subtitle">${employeeRole}</h4>
-                                <p class="card-text">${employeeBio}</p>
-                            </div>
-                        <div class="bg-light text-dark">
-                        <ul class="list-group">
-                            <li class="list-group-item">ID: ${employeeId}</li>
-                            <li class="list-group-item">
-                                Email: <a href="mailto:${employeeEmail}>${employeeEmail}</a>
-                            </li>
-                            <li class="list-group-item">
-                                GitHub: <a href="https://github.io/${gitHubUsername} target="_blank">${gitHubUsername}</a>
-                            </li>
-                        </ul>
-                    </div>
-                `;
-            })
-        .join('')}
-    `
-}
-
+// create Intern Card
 const generateIntern = internData => {
     return `
         ${internArr
@@ -147,7 +117,7 @@ const generateIntern = internData => {
 }
 
 
-// create Intern Card
+
 
 
 
