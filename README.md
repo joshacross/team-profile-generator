@@ -12,6 +12,9 @@ Team Profile Generator, is a node.js application that is using object oriented p
 * OOP
 * TDD
 
+## Video Walkthrough
+https://www.loom.com/share/1e919ab7c9f24443a8776f1def8dbbf9 
+
 ## Functionality
 * Implemented test with Jest to verify proper oject creation and method usage
 
